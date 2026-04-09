@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-
+import emailjs from "@emailjs/browser";
 const NAV_LINKS = ["Home", "About", "Skills", "Projects", "Experience", "Contact"];
 
 const SKILLS = {
@@ -60,15 +60,27 @@ const PROJECTS = [
 
 const EXPERIENCE = [
   {
-    role: "Full Stack Developer",
-    company: "NetSpace ",
-    period: "2023 – Present",
+    role: "MERN Stack Developer",
+    company: "NetSpace Software Solution Ujjain",
+    period: "Apr 2023 – Present",
     points: [
       "Built scalable REST APIs using Node.js & Express serving 10k+ users",
       "Developed responsive React.js frontend with Redux state management",
       "Optimized MongoDB queries reducing load time by 40%",
     ],
   },
+ {
+    role: "Trainee (Full Stack Developer)",
+    company: "Codemanta, Indore",
+    period: "Oct 2022 – Apr 2023",
+  points: [
+  "Developed responsive user interfaces using React.js",
+  "Implemented reusable components and managed state using hooks",
+  "Integrated REST APIs and handled data rendering on UI",
+  "Improved UI/UX with modern CSS, Flexbox, and responsive design",
+  "Worked on form handling, validation, and dynamic routing",
+]
+  }
 ];
 
 // ── scroll spy ──
@@ -233,12 +245,31 @@ export default function App() {
 
   const scrollTo = (id) => document.getElementById(id.toLowerCase())?.scrollIntoView({ behavior: "smooth" });
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setSent(true);
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setSent(false), 4000);
-  };
+
+
+const handleSubmit = (e) => {
+  e.preventDefault();
+
+  emailjs.send(
+    "service_h15visr",
+    "template_49t6q98",
+     {
+    name: formData.name,
+    email: formData.email,
+    message: formData.message,
+  },
+    "cyvcgSCei9k2l8Si2"
+  )
+  .then(() => {
+    alert("Message Sent ✅");
+    setFormData({ name: "", email: "", message: "" })
+  })
+
+    
+  .catch(() => {
+    alert("Error ❌");
+  });
+};
 
   return (
     <div style={{ fontFamily: "'Sora','Inter',sans-serif", color: "#111", background: "#fff", minHeight: "100vh" }}>
@@ -407,7 +438,7 @@ export default function App() {
                 </p>
               </Reveal>
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
-                {[["📍","Location","India"],["💼","Experience","3+ Years"],["🎓","Education","B.SC & MCA (Pursuing)"],["🌐","Languages","Hindi, English"]].map(([icon,label,val],i)=>(
+                {[["📍","Location","Ujjain, Madhya Pradesh, India"],["💼","Experience","3+ Years"],["🎓","Education","B.SC & MCA (Pursuing)"],["🌐","Languages","Hindi, English"]].map(([icon,label,val],i)=>(
                   <Reveal key={label} delay={0.1*i}>
                     <div style={{background:"#fff",padding:"16px 20px",borderRadius:12,border:"1px solid #eee"}}>
                       <div style={{fontSize:18,marginBottom:4}}>{icon}</div>
