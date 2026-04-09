@@ -61,32 +61,12 @@ const PROJECTS = [
 const EXPERIENCE = [
   {
     role: "Full Stack Developer",
-    company: "Your Company Name",
+    company: "NetSpace ",
     period: "2023 – Present",
     points: [
       "Built scalable REST APIs using Node.js & Express serving 10k+ users",
       "Developed responsive React.js frontend with Redux state management",
       "Optimized MongoDB queries reducing load time by 40%",
-    ],
-  },
-  {
-    role: "Junior MERN Developer",
-    company: "Previous Company",
-    period: "2022 – 2023",
-    points: [
-      "Developed full-stack features for SaaS product",
-      "Integrated third-party APIs (payment, maps, notifications)",
-      "Collaborated in Agile team of 8 developers",
-    ],
-  },
-  {
-    role: "Freelance Web Developer",
-    company: "Self-Employed",
-    period: "2021 – 2022",
-    points: [
-      "Delivered 15+ client projects using MERN stack",
-      "Built custom CMS solutions and e-commerce platforms",
-      "Maintained long-term client relationships",
     ],
   },
 ];
@@ -315,7 +295,7 @@ export default function App() {
               }}>{n}</button>
           ))}
         </div>
-        <button onClick={()=>window.open("mailto:your@email.com")} className="hire-btn"
+        <button onClick={()=>window.open("mailto:manishprajapat96302@gmail.com")} className="hire-btn"
           style={{background:"#1a56db",color:"#fff",border:"none",padding:"8px 20px",borderRadius:8,cursor:"pointer",fontSize:14,fontWeight:600}}>
           Hire Me
         </button>
@@ -427,7 +407,7 @@ export default function App() {
                 </p>
               </Reveal>
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
-                {[["📍","Location","India"],["💼","Experience","3+ Years"],["🎓","Education","B.Tech CS"],["🌐","Languages","Hindi, English"]].map(([icon,label,val],i)=>(
+                {[["📍","Location","India"],["💼","Experience","3+ Years"],["🎓","Education","B.SC & MCA (Pursuing)"],["🌐","Languages","Hindi, English"]].map(([icon,label,val],i)=>(
                   <Reveal key={label} delay={0.1*i}>
                     <div style={{background:"#fff",padding:"16px 20px",borderRadius:12,border:"1px solid #eee"}}>
                       <div style={{fontSize:18,marginBottom:4}}>{icon}</div>
@@ -584,23 +564,47 @@ export default function App() {
               </button>
             </form>
           </Reveal>
-          <div style={{display:"flex",justifyContent:"center",gap:40,marginTop:52,flexWrap:"wrap"}}>
-            {[["📧","Email","your@email.com"],["💼","LinkedIn","linkedin.com/in/yourname"],["🐙","GitHub","github.com/yourusername"]].map(([icon,label,val],i)=>(
-              <Reveal key={label} delay={i*0.1}>
-                <div className="ci-card" style={{textAlign:"center",cursor:"pointer"}}>
-                  <div style={{fontSize:28,marginBottom:6}}>{icon}</div>
-                  <div style={{fontSize:11,color:"#aaa",fontWeight:600,textTransform:"uppercase",letterSpacing:0.5}}>{label}</div>
-                  <div style={{fontSize:13,color:"#1a56db",fontWeight:600,marginTop:2}}>{val}</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+         <div style={{display:"flex",justifyContent:"center",gap:40,marginTop:52,flexWrap:"wrap"}}>
+  {[["📧","Email","manishprajapat96302@gmail.com"],
+    ["💼","LinkedIn","https://www.linkedin.com/in/manish-prajapat-bb6365265"],
+    ["🐙","GitHub","https://github.com/MANISHPRAJAPATII/"]
+  ].map(([icon,label,val],i)=>(
+    <Reveal key={label} delay={i*0.1}>
+      <div className="ci-card" style={{textAlign:"center",cursor:"pointer"}}>
+        
+        <div style={{fontSize:28,marginBottom:6}}>{icon}</div>
+        
+        <div style={{
+          fontSize:11,
+          color:"#aaa",
+          fontWeight:600,
+          textTransform:"uppercase",
+          letterSpacing:0.5
+        }}>
+          {label}
+        </div>
+
+        <div style={{fontSize:13,marginTop:2}}>
+          <a 
+            href={label === "Email" ? `mailto:${val}` : val}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{color:"#1a56db",fontWeight:600,textDecoration:"none"}}
+          >
+            {val}
+          </a>
+        </div>
+
+      </div>
+    </Reveal>
+  ))}
+</div>
         </div>
       </section>
 
       {/* FOOTER */}
       <footer style={{textAlign:"center",padding:"28px 2rem",borderTop:"1px solid #f0f0f0",color:"#999",fontSize:13}}>
-        Designed & Built by <strong style={{color:"#1a56db"}}>Your Name</strong> · MERN Stack Developer · {new Date().getFullYear()}
+        Designed & Built by <strong style={{color:"#1a56db"}}>Manish</strong> · MERN Stack Developer · {new Date().getFullYear()}
       </footer>
     </div>
   );
